@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const apiRoutes = require('./routes/api');
 
 const app = express();
-app.use(cors({origin:"https://emaildetailer.netlify.app/"}));
+app.use(cors({origin:"https://emaildetailer.netlify.app"}));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
