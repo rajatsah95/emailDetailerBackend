@@ -46,6 +46,11 @@ async function start() {
   });
   watcher.start(pollSeconds, token);
 
+  app.get('/', (req, res) => {
+  res.send('🚀 Email Analyzer Backend is running');
+});
+
+
   // expose endpoint to get mailbox & token
   app.get('/test-info', (req, res) => {
     res.json({ testMailAddress: process.env.IMAP_USER, testSubjectToken: token });
