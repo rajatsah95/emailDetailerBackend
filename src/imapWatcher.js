@@ -72,8 +72,9 @@ class IMAPWatcher extends EventEmitter {
             msg.on('body', (stream) => {
               stream.on('data', (chunk) => { raw += chunk.toString('utf8'); });
             });
-            msg.once('attributes', (attrs) => {
-              // nothing
+            let attrs=null
+            msg.once('attributes', (a) => {
+              attrs=a
             });
             msg.once('end', async () => {
               try {
